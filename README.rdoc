@@ -2,13 +2,29 @@
 
 === A plugin for Moonshine[http://github.com/railsmachine/moonshine]
 
-A plugin for installing and managing clarity.
+A plugin for installing and managing clarity[http://github.com/tobi/clarity/]. It uses the moonshine_god[http://github.com/railsmachine/moonshine_god] plugin to ensure clarity stays up.
 
 === Instructions
 
-* <tt>script/plugin install git://github.com/ACCOUNT/moonshine_clarity.git</tt>
-* Configure settings if needed
-    configure(:clarity => {:foo => true})
-* Include the plugin and recipe(s) in your Moonshine manifest
+* <tt>script/plugin install git://github.com/railsmachine/moonshine_clarity.git</tt>
+* <tt>script/plugin install git://github.com/railsmachine/moonshine_god.git</tt>
+* Configure settings if needed. This plugin has defaults which work out of the box, but you'll probably at least want to change the password
+    # These are the default values:
+    configure :clarity => {
+                :username => 'admin',
+                :password => 'secret',
+                :port     => 8989,
+                :dir      => '/var/log'
+              }
+
+* If you are using this in a manifest that doesn't use the rest of the rails stack (ie a log server), you will need this in your manifest:
+    # don't need rails actually, just gemrc actually it sets up
+    configure(:gems => false)
+    recipe :rails_gems
+    
+* Include the plugin and recipe in your Moonshine manifest
+
+    plugin :god
+    recipe :god
     plugin :clarity
     recipe :clarity
