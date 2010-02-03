@@ -1,0 +1,14 @@
+= Moonshine_Clarity
+
+=== A plugin for Moonshine[http://github.com/railsmachine/moonshine]
+
+A plugin for installing and managing clarity.
+
+=== Instructions
+
+* <tt>script/plugin install git://github.com/ACCOUNT/moonshine_clarity.git</tt>
+* Configure settings if needed
+    configure(:clarity => {:foo => true})
+* Include the plugin and recipe(s) in your Moonshine manifest
+    plugin :clarity
+    recipe :clarity

@@ -1,0 +1,11 @@
+God.watch do |w|
+  w.name = "clarity"
+  w.start = "clarity --username=<%= configuration[:clarity][:username] || 'admin' %> --password=<%= configuration[:clarity][:password] || 'secret' %> --port=<%= configuration[:clarity][:port] || 8989 %> <%= configuration[:clarity][:dir] || '/var/log' %>" 
+  w.interval        = 60.seconds
+ 
+  w.start_if do |start|
+    start.condition(:process_running) do |c|
+      c.running = false
+    end
+  end
+end
