@@ -28,3 +28,7 @@ A plugin for installing and managing clarity[http://github.com/tobi/clarity/]. I
     recipe :god
     plugin :clarity
     recipe :clarity
+
+=== Copyright
+
+Unless otherwise specified, all content copyright (C) 2014, Rails Machine
